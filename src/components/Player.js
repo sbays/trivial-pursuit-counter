@@ -4,7 +4,7 @@ import Styled from "styled-components";
 
 const PlayerStyles = Styled.div`
     width: 25%;
-    min-width: 200px;
+    min-width: 49%;
     padding: 15px 0;
 `;
 
