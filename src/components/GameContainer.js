@@ -13,11 +13,13 @@ const GameStyles = Styled.div`
         padding-top: 20px;
         padding-bottom: 20px;
         input {
+            margin-top: 15px;
             font-size: 2rem;
             padding: 0.5rem;
             border-radius: 3px;
         }
         button{
+            margin-top: 15px;
             font-size: 1.6rem;
             margin-left: 20px;
         } 
