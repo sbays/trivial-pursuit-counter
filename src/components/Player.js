@@ -4,6 +4,7 @@ import Styled from "styled-components";
 
 const PlayerStyles = Styled.div`
     width: 25%;
+    min-width: 200px;
 `;
 
 class Player extends Component {
