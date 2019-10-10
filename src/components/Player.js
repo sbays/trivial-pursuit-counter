@@ -5,6 +5,7 @@ import Styled from "styled-components";
 const PlayerStyles = Styled.div`
     width: 25%;
     min-width: 200px;
+    padding: 15px 0;
 `;
 
 class Player extends Component {
@@ -44,7 +45,9 @@ class Player extends Component {
           onChangeValue={this.onChangeValue}
           correct={this.state.correct}
         ></CheeseContainer>
-        <button onClick={this.removePlayer}>Remove Player</button>
+        <button class="button" onClick={this.removePlayer}>
+          Remove Player
+        </button>
       </PlayerStyles>
     );
   }

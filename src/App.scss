@@ -1,3 +1,4 @@
+@import "~bulma";
 //Card Colors
 $bg-color: #1b3861;
 $gold: #ecba1d;
@@ -96,11 +97,11 @@ body {
   padding: 1em 0 2em;
   color: yellow;
 }
-.modal-container {
+.player-panel-container {
   margin: 0.5em;
 
 }
-.modal {
+.player-panel {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -185,7 +186,7 @@ body {
 }
 
 .category-buttons {
-  padding: 0;
+  padding: 15px 0;
   
   li {
     display: inline-block;

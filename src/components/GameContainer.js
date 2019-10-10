@@ -11,7 +11,14 @@ const GameStyles = Styled.div`
     .new-player-form {
         width: 100%;
         padding-top: 20px;
+        padding-bottom: 20px;
+        input {
+            font-size: 2rem;
+            padding: 0.5rem;
+            border-radius: 3px;
+        }
         button{
+            font-size: 1.6rem;
             margin-left: 20px;
         } 
     }
@@ -26,6 +33,7 @@ const DiceStyles = Styled.div`
 `;
 
 const DiceButton = Styled.button`
+    margin-top: 20px;
     font-size: 2rem;
     border-radius: 3px;
     border: 1px solid #1b3861;
@@ -90,13 +98,16 @@ class GameContainer extends Component {
           <form onSubmit={this.handleSubmit}>
             <label htmlFor="name">
               <input
+                className="player-name-input"
                 name="name"
                 value={this.state.newName}
                 onChange={this.handleChange}
                 type="text"
               />
             </label>
-            <button type="submit">Add Player</button>
+            <button className="button" type="submit">
+              Add Player
+            </button>
           </form>
         </div>
         <div className="players-wrapper">
@@ -104,7 +115,9 @@ class GameContainer extends Component {
             <Player removePlayer={this.removePlayer} name={player}></Player>
           ))}
         </div>
-        <DiceButton onClick={this.rollDie}>Roll Die</DiceButton>
+        <DiceButton className="button" onClick={this.rollDie}>
+          Roll Die
+        </DiceButton>
         <DiceStyles>
           <div
             className={`dice dice-${this.state.diceValue}`}

@@ -4,7 +4,6 @@ import CategoryButton from "./CategoryButton";
 
 //Cheese Wheel and Pieces
 const CheesePiece = Styled.div`
-
 `;
 const categories = ["blue", "pink", "yellow", "brown", "green", "orange"];
 class CheeseContainer extends Component {
@@ -15,8 +14,8 @@ class CheeseContainer extends Component {
     });
     return (
       <CheesePiece>
-        <div className="modal-container">
-          <div className="modal">
+        <div className="player-panel-container">
+          <div className="player-panel">
             <div className="cheese-container">
               <div className="cheese">{cheeses}</div>
             </div>
@@ -25,6 +24,7 @@ class CheeseContainer extends Component {
             <ul className="category-buttons">
               {categories.map(category => (
                 <CategoryButton
+                  className="button"
                   onChangeValue={this.props.onChangeValue}
                   color={category}
                 ></CategoryButton>
