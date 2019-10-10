@@ -19,7 +19,7 @@ $orange: #e7942e;
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
   background: #34495e;
   color: white;
 }
@@ -41,6 +41,9 @@ body {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  h1 {
+    margin-bottom: 15px;
+  }
 }
 
 .App-link {
@@ -49,9 +52,11 @@ body {
 
 .header-key {
   padding: 0;
+  text-align: left;
 }
 .header-key-item {
   display: -webkit-inline-flex;
+  line-height: 1rem;
 
   &:before{
     content:'';
@@ -60,7 +65,8 @@ body {
     height: 20px;
     background: red;
     border-radius: 50%;
-    margin: 10px 15px 10px 30px;
+    margin-left: 30px;
+    margin-right: 15px;
   }
   &.blue {
     &:before {

@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <p>A Poor Man's Trivial Pursuit</p>
+        <h1>A Poor Man's Trivial Pursuit</h1>
         <ul className="header-key">
           <li className="header-key-item blue">Geography </li>
           <li className="header-key-item pink">Entertainment </li>
