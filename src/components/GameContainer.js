@@ -4,26 +4,29 @@ import Player from "./Player";
 import Styled from "styled-components";
 
 const GameStyles = Styled.div`
-    .players-wrapper {
-        display: flex;
-        flex-direction: row;
-    }
-    .new-player-form {
-        width: 100%;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        input {
-            margin-top: 15px;
-            font-size: 2rem;
-            padding: 0.5rem;
-            border-radius: 3px;
-        }
-        button{
-            margin-top: 15px;
-            font-size: 1.6rem;
-            margin-left: 20px;
-        } 
-    }
+  input {
+      max-width: 100%;
+  }
+  .players-wrapper {
+      display: flex;
+      flex-direction: row;
+  }
+  .new-player-form {
+      width: 100%;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      input {
+          margin-top: 15px;
+          font-size: 2rem;
+          padding: 0.5rem;
+          border-radius: 3px;
+      }
+      button{
+          margin-top: 15px;
+          font-size: 1.6rem;
+          margin-left: 20px;
+      } 
+  }
 `;
 
 const DiceStyles = Styled.div`
@@ -61,6 +64,13 @@ class GameContainer extends Component {
   }
   handleSubmit(event) {
     event.preventDefault();
+    if (this.state.players.indexOf(this.state.newName) > -1) {
+      this.props.alert.show("Sorry, this player already exists", {
+        timeout: 2000,
+        type: "error"
+      });
+      return;
+    }
     this.setState((prevState, props) => {
       return {
         players: [...prevState.players, this.state.newName],
@@ -69,7 +79,7 @@ class GameContainer extends Component {
     });
   }
   removePlayer(name) {
-    if (this.state.players.indexOf(name) >= 0 ) {
+    if (this.state.players.indexOf(name) >= 0) {
       this.setState((prevState, props) => {
         return {
           players: prevState.players.filter(player => player !== name)
@@ -113,8 +123,12 @@ class GameContainer extends Component {
           </form>
         </div>
         <div className="players-wrapper">
-          {this.state.players.map(player => (
-            <Player removePlayer={this.removePlayer} name={player}></Player>
+          {this.state.players.map((player, i) => (
+            <Player
+              key={i}
+              removePlayer={this.removePlayer}
+              name={player}
+            ></Player>
           ))}
         </div>
         <DiceButton className="button" onClick={this.rollDie}>

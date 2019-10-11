@@ -3,8 +3,10 @@ import "./App.scss";
 import "./dice.css";
 import CheeseContainer from "./components/CheeseContainer";
 import GameContainer from "./components/GameContainer";
+import { useAlert } from "react-alert";
 
-function App() {
+const App = () => {
+  const alert = useAlert();
   return (
     <div className="App">
       <header className="App-header">
@@ -19,9 +21,9 @@ function App() {
           <li className="header-key-item orange">Sports & Leisure</li>
         </ul>
       </header>
-      <GameContainer></GameContainer>
+      <GameContainer alert={alert}></GameContainer>
     </div>
   );
-}
+};
 
 export default App;

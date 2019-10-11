@@ -22,8 +22,9 @@ class CheeseContainer extends Component {
           </div>
           <div>
             <ul className="category-buttons">
-              {categories.map(category => (
+              {categories.map((category, i) => (
                 <CategoryButton
+                  key={i}
                   className="button"
                   onChangeValue={this.props.onChangeValue}
                   color={category}

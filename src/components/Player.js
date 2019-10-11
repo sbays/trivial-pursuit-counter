@@ -42,10 +42,11 @@ class Player extends Component {
       <PlayerStyles>
         <h2>Name: {this.props.name}</h2>
         <CheeseContainer
+          key={this.props.name}
           onChangeValue={this.onChangeValue}
           correct={this.state.correct}
         ></CheeseContainer>
-        <button class="button" onClick={this.removePlayer}>
+        <button className="button" onClick={this.removePlayer}>
           Remove Player
         </button>
       </PlayerStyles>
