@@ -69,7 +69,7 @@ class GameContainer extends Component {
     });
   }
   removePlayer(name) {
-    if (this.state.players.indexOf(name)) {
+    if (this.state.players.indexOf(name) >= 0 ) {
       this.setState((prevState, props) => {
         return {
           players: prevState.players.filter(player => player !== name)
