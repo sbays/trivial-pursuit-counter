@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import CheeseContainer from "./CheeseContainer";
+import * as React from "react";
 import Player from "./Player";
 import Styled from "styled-components";
 
@@ -44,8 +43,14 @@ const DiceButton = Styled.button`
     background: #ecba1d;
 `;
 
-class GameContainer extends Component {
-  constructor(props) {
+interface IGameContainerState {
+  players: any;
+  newName: string;
+  diceValue: number | null;
+}
+
+class GameContainer extends React.Component<any, IGameContainerState> {
+  constructor(props: any) {
     super(props);
     this.state = {
       players: ["simon", "milo"],
@@ -56,10 +61,10 @@ class GameContainer extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.removePlayer = this.removePlayer.bind(this);
   }
-  handleChange(event) {
+  handleChange(event: any) {
     this.setState({ newName: event.target.value });
   }
-  handleSubmit(event) {
+  handleSubmit(event: any) {
     event.preventDefault();
     this.setState((prevState, props) => {
       return {
@@ -68,16 +73,18 @@ class GameContainer extends Component {
       };
     });
   }
-  removePlayer(name) {
-    if (this.state.players.indexOf(name) >= 0 ) {
+  removePlayer(name: any) {
+    if (this.state.players.indexOf(name) >= 0) {
       this.setState((prevState, props) => {
         return {
-          players: prevState.players.filter(player => player !== name)
+          players: prevState.players.filter(
+            (player: any): boolean => player !== name
+          )
         };
       });
     }
   }
-  getRandomNumber = () => {
+  getRandomNumber = (): any => {
     let number = Number(Math.floor(Math.random() * 6) + 1);
     if (number === this.state.diceValue) {
       return this.getRandomNumber();
@@ -93,7 +100,7 @@ class GameContainer extends Component {
     });
   };
 
-  render() {
+  render(): React.ReactNode {
     return (
       <GameStyles>
         <div className="new-player-form">
@@ -113,8 +120,12 @@ class GameContainer extends Component {
           </form>
         </div>
         <div className="players-wrapper">
-          {this.state.players.map(player => (
-            <Player removePlayer={this.removePlayer} name={player}></Player>
+          {this.state.players.map((player: any, i: number) => (
+            <Player
+              key={i}
+              removePlayer={this.removePlayer}
+              name={player}
+            ></Player>
           ))}
         </div>
         <DiceButton className="button" onClick={this.rollDie}>

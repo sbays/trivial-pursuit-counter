@@ -1,15 +1,16 @@
-import React, { Component } from "react";
-import Styled from "styled-components";
+import * as React from "react";
+import styled from "styled-components";
 import CategoryButton from "./CategoryButton";
 
 //Cheese Wheel and Pieces
-const CheesePiece = Styled.div`
+const CheesePiece = styled("div")<any>`
+  background: "pink";
 `;
 const categories = ["blue", "pink", "yellow", "brown", "green", "orange"];
-class CheeseContainer extends Component {
-  render() {
-    let cheeses = [];
-    this.props.correct.forEach(color => {
+class CheeseContainer extends React.Component<any, any> {
+  render(): React.ReactNode {
+    let cheeses: any = [];
+    this.props.correct.forEach((color: string) => {
       cheeses.push(<div className={"piece " + color}></div>);
     });
     return (
