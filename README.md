@@ -1,5 +1,9 @@
 ## For when the Trivial Pursuit set at the pub is missing all of the cheeses, cheese-holders and dice
 
+Demo at https://vibrant-kowalevski-ae8d19.netlify.com/
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 ## Available Scripts
 
 In the project directory, you can run:
